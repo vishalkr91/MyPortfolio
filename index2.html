@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* ─── NAVBAR ─── */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 60px;
+            background-color: rgb(86, 74, 222);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: lavender;
+        }
+
+        /* ─── HERO SECTION ─── */
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 80px;
+        }
+
+        .firstSection > div {
+            width: 45%;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+            line-height: 1.4;
+        }
+
+        .leftSection p {
+            font-size: 1rem;
+            color: gray;
+            margin: 15px 0 30px 0;
+            line-height: 1.7;
+        }
+
+        /* ── Buttons ── */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: blueviolet;
+            color: white;
+            border: 2px solid blueviolet;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: blueviolet;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: rgb(0, 0, 33);
+        }
+
+        .rightSection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rightSection img {
+            width: 70%;
+            border-radius: 20px;
+            border: 4px solid blueviolet;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.5);
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .purple {
+            color: blueviolet;
+        }
+
+        .text-gray {
+            color: grey;
+        }
+
+        #element {
+            color: rgb(158, 249, 105);
+        }
+
+        /* ─── DIVIDER LINE ─── */
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            margin: 20px 80px;
+        }
+
+        /* ─── WORK EXPERIENCE / TIMELINE ─── */
+        .secondSection {
+            max-width: 80vw;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .secondSection .section-label {
+            color: gray;
+            font-size: 0.9rem;
+        }
+
+        .secondSection h1 {
+            font-size: 2rem;
+            margin: 6px 0 40px 0;
+        }
+
+        /* Timeline container */
+        .timeline {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        /* Horizontal line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-items {
+            display: flex;
+            gap: 0;
+            justify-content: space-between;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 18%;
+            padding-top: 55px;
+        }
+
+        /* Dot on the line */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: blueviolet;
+            border: 3px solid rgb(0, 0, 33);
+            outline: 2px solid blueviolet;
+        }
+
+        .timeline-item img.image-top {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .year {
+            font-size: 0.72rem;
+            color: rgb(158, 249, 105);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item .vertical-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .timeline-item .vertical-desc {
+            font-size: 0.75rem;
+            color: gray;
+            line-height: 1.5;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background-color: rgb(10, 10, 50);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 60px 80px 30px 80px;
+            margin-top: 80px;
+        }
+
+        /* Four columns */
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            width: 22%;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.82rem;
+            color: gray;
+            line-height: 1.8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: gray;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: blueviolet;
+        }
+
+        /* Footer bottom bar */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: gray;
+        }
+
+        .footer-bottom a {
+            color: blueviolet;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: gray;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ─── NAVBAR ─── -->
+    <header>
+        <nav>
+            <div class="left">
+                <h1>Website</h1>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Services</a></li>
+                    <li><a href="/">Projects</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ─── HERO SECTION ─── -->
+        <section class="firstSection">
+            <div class="leftSection">
+                my name is <span class="purple">Vishal</span>
+                <div>and i am a passionate</div>
+                <span id="element"></span>
+
+                <!-- Description paragraph -->
+                <p>I build clean, responsive and user-friendly websites. Passionate about turning ideas into reality through code and creativity.</p>
+
+                <!-- ✅ Buttons: Download Resume + GitHub -->
+                <div class="btn-group">
+                    <a href="resume.pdf" download class="btn btn-primary">⬇ Download Resume</a>
+                    <a href="https://github.com" target="_blank" class="btn btn-outline">GitHub ↗</a>
+                </div>
+            </div>
+
+            <div class="rightSection">
+                <img src="IMAGE.jpg" alt="Vishal's photo">
+            </div>
+        </section>
+
+        <!-- ✅ HR divider line -->
+        <hr>
+
+        <!-- ─── WORK EXPERIENCE / TIMELINE ─── -->
+        <section class="secondSection">
+            <span class="section-label">what i have done till now</span>
+            <h1>Work Experience</h1>
+
+            <!-- ✅ Timeline with year spans, logos, titles, descriptions -->
+            <div class="timeline">
+                <div class="timeline-items">
+
+                    <div class="timeline-item">
+                        <img class="image-top" src="images.jpg" alt="HTML logo">
+                        <div class="year">2010 – 2012</div>      <!-- ✅ year in span -->
+                        <div class="vertical-title">HTML Developer</div>
+                        <div class="vertical-desc">Built static websites and learned the fundamentals of web structure and semantics.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <img class="image-top" src="images.jpg" alt="Python logo">
+                        <div class="year">2012 – 2014</div>
+                        <div class="vertical-title">Python Developer</div>
+                        <div class="vertical-desc">Developed scripts and small automation tools using Python and basic data handling.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <img class="image-top" src="images.jpg" alt="CSS logo">
+                        <div class="year">2014 – 2016</div>
+                        <div class="vertical-title">Frontend Developer</div>
+                        <div class="vertical-desc">Worked on responsive layouts using CSS Flexbox and Grid for client projects.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <img class="image-top" src="images.jpg" alt="JS logo">
+                        <div class="year">2016 – 2018</div>
+                        <div class="vertical-title">JavaScript Developer</div>
+                        <div class="vertical-desc">Built interactive UIs and integrated REST APIs using vanilla JS and jQuery.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <img class="image-top" src="images.jpg" alt="React logo">
+                        <div class="year">2018 – Present</div>
+                        <div class="vertical-title">Full Stack Developer</div>
+                        <div class="vertical-desc">Building full stack apps using React, Node.js and modern web technologies.</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ✅ HR divider line -->
+        <hr>
+
+    </main>
+
+    <!-- ✅ FOOTER in four parts -->
+    <footer>
+        <div class="footer-top">
+
+            <!-- Column 1 — About -->
+            <div class="footer-col">
+                <h3>Vishal</h3>
+                <p>A passionate web developer building clean and responsive websites. Available for freelance work.</p>
+            </div>
+
+            <!-- Column 2 — Quick Links -->
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Services</a></li>
+                    <li><a href="/">Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 — Services -->
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="/">Web Development</a></li>
+                    <li><a href="/">UI / UX Design</a></li>
+                    <li><a href="/">Graphic Design</a></li>
+                    <li><a href="/">Video Editing</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 — Contact -->
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>vishal@email.com</p>
+                <p style="margin-top:8px;">+91 98765 43210</p>
+                <p style="margin-top:8px;">India</p>
+            </div>
+
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+            <p>© 2024 Vishal. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['web developer', 'graphic designer', 'video editor'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+        });
+    </script>
+
+</body>
+</html>
